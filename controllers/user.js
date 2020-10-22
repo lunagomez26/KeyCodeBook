@@ -7,7 +7,7 @@ const UserModel = require('../models/user');
 exports.create = (req, res) =>{
     if(Object.entries(req.body).length == 0){
         return res.status(400).send({
-            message: 'Los datos son obligatorios.'
+            message: 'Todos los campos son obligatorios.'
         })
     }
     const user = new UserModel({
