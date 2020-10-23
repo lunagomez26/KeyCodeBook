@@ -9,6 +9,7 @@ app.use(bodyParser.json())
 conectDB() //estamos ejecutando el modulo de nuestra conexion a la base de datos.
 
 require('./routes/user')(app)
+require('./routes/genre')(app)
 
 app.listen(3000, () =>{
     console.log('El servidor se levanto')
