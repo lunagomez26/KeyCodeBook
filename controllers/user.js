@@ -62,3 +62,39 @@ exports.update = (req, res) =>{
         }
     )
 }
+
+exports.getAll = (req, res) => {
+    UserModel.find()
+        .then((users) => {res.send(users)})
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+}
+
+exports.getOne = (req, res) =>{
+    UserModel.findById(req.params.id)
+    .then((user) => {res.send(user)})
+    .catch(
+        (error) => {
+            res.status(500).send({
+                message: error.message
+            })
+        }
+    )
+}
+
+exports.deleteOne = (req, res) =>{
+    UserModel.findByIdAndRemove(req.params.id)
+    .then((user) => {res.send(user)})
+    .catch(
+        (error) => {
+            res.status(500).send({
+                message: error.message
+            })
+        }
+    )
+}

@@ -55,3 +55,44 @@ exports.update = (req, res) =>{
         })
     })
 }
+
+exports.getAll = (req, res) =>{
+    BookModel.find()
+        .populate('genre')
+        .exec()
+        .then( (books) => res.send(books))
+        .catch(
+            (error) =>{
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+}
+
+exports.getOne = (req, res) =>{
+    BookModel.findById(req.params.id)
+    .populate('genre')
+    .exec()
+    .then((book) => {res.send(book)})
+    .catch(
+        (error) => {
+            res.status(500).send({
+                message: error.message
+            })
+        }
+    )
+
+}
+
+exports.deleteOne = (req, res) =>{
+    BookModel.findByIdAndRemove(req.params.id)
+        .then((book) => {res.send(book)})
+        .catch(
+            (error) =>{
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+}
