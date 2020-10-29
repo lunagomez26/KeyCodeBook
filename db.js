@@ -3,7 +3,7 @@ const mongoose = require('mongoose'); //Paquete que permite la comunicacion con 
 const conectDB = () =>{
     //useNewUrlParser: Analizar la información que se le quiere enviar a mongoDB.
     //  useUnifiedTopology: Escuchar los llamados que hacemos a mongoDB y monitorea que es lo pasa.
-    mongoose.connect('mongodb+srv://luna:luna@luna.ke4jj.mongodb.net/KeyCodeBook?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true }, (error) =>{
+    mongoose.connect('', {useNewUrlParser: true, useUnifiedTopology: true }, (error) =>{
         if(error){
             console.log('Error:' , error);
         }else{

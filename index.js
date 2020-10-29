@@ -2,6 +2,7 @@ const express = require('express') // estamos utilizando express en nuestro proy
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const {conectDB} = require('./db')
+const port = process.env.PORT || 3000 
 const app = express() //Se convierte a la constante express en un objeto, con le cual vamos a poder trabajar
 
 app.use(cors())
@@ -12,6 +13,6 @@ require('./routes/user')(app)
 require('./routes/genre')(app)
 require('./routes/book')(app)
 
-app.listen(3000, () =>{
+app.listen(port, () =>{
     console.log('El servidor se levanto')
 })
